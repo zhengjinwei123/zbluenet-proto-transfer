@@ -2,21 +2,9 @@ syntax = "proto3";
 
 package protocol;
 
-message C2SLoginReq {
+message UserInfo {
 	optional string account = 1;
 	optional int32 age = 2;
 	repeated int32 friends = 3;
-}
-
-message S2CLoginResp {
-	optional int32 ret = 1;
-}
-
-message C2SLogoutReq {
-	
-}
-
-message S2CLogoutResp {
-	optional int32 ret = 1;
 }
 
