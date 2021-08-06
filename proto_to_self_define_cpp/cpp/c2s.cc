@@ -29,7 +29,7 @@ int C2SLoginReqMessage::encode(char *buffer, size_t size) const
 	return data.ByteSizeLong();
 }
 
-int C2SLoginReqMessage::decode(const char *buffer, size_t size) const
+int C2SLoginReqMessage::decode(const char *buffer, size_t size)
 {
 	std::string str(buffer, size);
 	if (false == data.ParseFromString(str)) {
@@ -70,7 +70,7 @@ int S2CLoginRespMessage::encode(char *buffer, size_t size) const
 	return data.ByteSizeLong();
 }
 
-int S2CLoginRespMessage::decode(const char *buffer, size_t size) const
+int S2CLoginRespMessage::decode(const char *buffer, size_t size)
 {
 	std::string str(buffer, size);
 	if (false == data.ParseFromString(str)) {
@@ -111,7 +111,7 @@ int C2SLogoutReqMessage::encode(char *buffer, size_t size) const
 	return data.ByteSizeLong();
 }
 
-int C2SLogoutReqMessage::decode(const char *buffer, size_t size) const
+int C2SLogoutReqMessage::decode(const char *buffer, size_t size)
 {
 	std::string str(buffer, size);
 	if (false == data.ParseFromString(str)) {
@@ -152,7 +152,7 @@ int S2CLogoutRespMessage::encode(char *buffer, size_t size) const
 	return data.ByteSizeLong();
 }
 
-int S2CLogoutRespMessage::decode(const char *buffer, size_t size) const
+int S2CLogoutRespMessage::decode(const char *buffer, size_t size)
 {
 	std::string str(buffer, size);
 	if (false == data.ParseFromString(str)) {

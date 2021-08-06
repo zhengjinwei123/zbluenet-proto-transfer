@@ -3,7 +3,7 @@
 // WARNING:  this code generate by prototransfer tool, do not edit it.
 
 #include <stdint.h>
-#include <cstddef.h>
+#include <cstddef>
 #include <string>
 #include <zbluenet/exchange/base_struct.h>
 
@@ -22,7 +22,7 @@ public:
 	static zbluenet::exchange::BaseStruct *create() { return new C2SLoginReqMessage(); }
 	virtual int encode(char *buffer, size_t size) const;
 	virtual int decode(const char *buffer, size_t size);
-	virtual C2SLoginReqMessage *clone() const { return new C2SLoginReqMessage(*this);
+	virtual C2SLoginReqMessage *clone() const { return new C2SLoginReqMessage(*this); }
 	virtual std::string dump() const;
 
 public:
@@ -38,7 +38,7 @@ public:
 	static zbluenet::exchange::BaseStruct *create() { return new S2CLoginRespMessage(); }
 	virtual int encode(char *buffer, size_t size) const;
 	virtual int decode(const char *buffer, size_t size);
-	virtual S2CLoginRespMessage *clone() const { return new S2CLoginRespMessage(*this);
+	virtual S2CLoginRespMessage *clone() const { return new S2CLoginRespMessage(*this); }
 	virtual std::string dump() const;
 
 public:
@@ -54,7 +54,7 @@ public:
 	static zbluenet::exchange::BaseStruct *create() { return new C2SLogoutReqMessage(); }
 	virtual int encode(char *buffer, size_t size) const;
 	virtual int decode(const char *buffer, size_t size);
-	virtual C2SLogoutReqMessage *clone() const { return new C2SLogoutReqMessage(*this);
+	virtual C2SLogoutReqMessage *clone() const { return new C2SLogoutReqMessage(*this); }
 	virtual std::string dump() const;
 
 public:
@@ -70,7 +70,7 @@ public:
 	static zbluenet::exchange::BaseStruct *create() { return new S2CLogoutRespMessage(); }
 	virtual int encode(char *buffer, size_t size) const;
 	virtual int decode(const char *buffer, size_t size);
-	virtual S2CLogoutRespMessage *clone() const { return new S2CLogoutRespMessage(*this);
+	virtual S2CLogoutRespMessage *clone() const { return new S2CLogoutRespMessage(*this); }
 	virtual std::string dump() const;
 
 public:

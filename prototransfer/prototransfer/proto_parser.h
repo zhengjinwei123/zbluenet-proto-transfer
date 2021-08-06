@@ -83,8 +83,8 @@ public:
 			for (size_t j = 0; j < descriptor->value_count(); ++j) {
 				auto val = descriptor->value(j)->number();
 				auto str_v = descriptor->FindValueByNumber(val)->name();
-
-				google::protobuf::SourceLocation* source_location{ new google::protobuf::SourceLocation };
+			
+				google::protobuf::SourceLocation* source_location{new google::protobuf::SourceLocation };
 				descriptor->value(j)->GetSourceLocation(source_location);
 				auto b = source_location->trailing_comments;
 				b.erase(std::remove(b.begin(), b.end(), '\n'), b.end());
@@ -132,7 +132,7 @@ public:
 
 		std::string structName = file_name + "MessageType";
 
-		ss << "struct " << structName << " {" << std::endl;
+		ss << "struct " << structName<< " {" << std::endl;
 		ss << "\t" << "template <typename AnyType>" << std::endl;
 		ss << "\t" << "struct id;" << std::endl << std::endl;
 		ss << "\t" << "zbluenet::exchange::BaseStruct *create(int id);" << std::endl;
@@ -144,11 +144,10 @@ public:
 
 			if (nspace != "") {
 				ss << "\t" << "static const int value = " << nspace << "::" << iter->field_name << ";" << std::endl;
-			}
-			else {
+			} else {
 				ss << "\t" << "static const int value = " << iter->field_name << ";" << std::endl;
 			}
-
+			
 			ss << "};" << std::endl << std::endl;
 		}
 
@@ -196,17 +195,15 @@ public:
 		}
 
 		file_header_ss << "#endif";
-		if (writeFile("./cpp/" + proto_file_base_name + ".h", file_header_ss.str()) == false) {
+		if (writeFile("./cpp/" +proto_file_base_name + ".h", file_header_ss.str()) == false) {
 			printf("write cpp file %s fail", std::string(proto_file_base_name + ".h").c_str());
-		}
-		else {
+		} else {
 			printf("write cpp file %s success", std::string(proto_file_base_name + ".h").c_str());
 		}
 
 		if (writeFile("./cpp/" + proto_file_base_name + ".cc", file_define_ss.str()) == false) {
 			printf("write cpp file %s fail", std::string(proto_file_base_name + ".cc").c_str());
-		}
-		else {
+		} else {
 			printf("write cpp file %s success", std::string(proto_file_base_name + ".cc").c_str());
 		}
 	}
@@ -241,9 +238,9 @@ private:
 		ss << "#ifndef " << fileDir << "_" << fileBaseName << "_MESSAGE_H" << std::endl;
 		ss << "#define " << fileDir << "_" << fileBaseName << "_MESSAGE_H" << std::endl;
 		ss << "// WARNING:  this code generate by prototransfer tool, do not edit it." << std::endl << std::endl;
-
+	
 		ss << "#include <stdint.h>" << std::endl;
-		ss << "#include <cstddef.h>" << std::endl;
+		ss << "#include <cstddef>" << std::endl;
 		ss << "#include <string>" << std::endl;
 		ss << "#include <zbluenet/exchange/base_struct.h>" << std::endl << std::endl;
 
@@ -270,10 +267,10 @@ private:
 		ss << "\t" << "static zbluenet::exchange::BaseStruct *create() { return new " << messageClsName << "(); }" << std::endl;
 		ss << "\t" << "virtual int encode(char *buffer, size_t size) const;" << std::endl;
 		ss << "\t" << "virtual int decode(const char *buffer, size_t size);" << std::endl;
-		ss << "\t" << "virtual " << messageClsName << " *clone() const { return new " << messageClsName << "(*this);" << std::endl;
+		ss << "\t" << "virtual " << messageClsName << " *clone() const { return new " << messageClsName << "(*this); }" << std::endl;
 		ss << "\t" << "virtual std::string dump() const;" << std::endl << std::endl;
 		ss << "public:" << std::endl;
-		ss << "\t" << nspace << "::" << messageName << " data;" << std::endl;
+		ss << "\t" << nspace  << "::"<< messageName << " data;" << std::endl;
 		ss << "};" << std::endl << std::endl;
 
 		return ss.str();
@@ -315,7 +312,7 @@ private:
 		ss << "\t" << "return data.ByteSizeLong();" << std::endl;
 		ss << "}" << std::endl << std::endl;
 
-		ss << "int " << messageClsName << "::decode(const char *buffer, size_t size) const" << std::endl;
+		ss << "int " << messageClsName << "::decode(const char *buffer, size_t size)" << std::endl;
 		ss << "{" << std::endl;
 		ss << "\t" << "std::string str(buffer, size);" << std::endl;
 		ss << "\t" << "if (false == data.ParseFromString(str)) {" << std::endl;
@@ -336,9 +333,5 @@ private:
 	ProtoInfoVec protoinfos_;
 	EnumInfoVec enuminfos_;
 };
-
-
-
-
 
 #endif
