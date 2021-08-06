@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+package protocol;
+
+
+enum ID {
+	C2S_LOGIN_REQ = 1001; // C2SLoginReq
+	S2C_LOGIN_RESP = 1002; // S2CLoginResp
+	C2S_LOGOUT_REQ = 1003; // C2SLogoutReq
+	S2C_LOGOUT_RESP = 1004; // S2CLogoutResp
+}
+
+message C2SLoginReq {
+	optional string account = 1;
+	optional int32 age = 2;
+	repeated int32 friends = 3;
+}
+
+message S2CLoginResp {
+	optional int32 ret = 1;
+}
+
+message C2SLogoutReq {
+	
+}
+
+message S2CLogoutResp {
+	optional int32 ret = 1;
+}
+
