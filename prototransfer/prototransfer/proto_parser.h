@@ -140,7 +140,7 @@ public:
 
 		for (auto iter = enuminfos_.begin(); iter != enuminfos_.end(); ++iter) {
 			ss << "template<>" << std::endl;
-			ss << "struct " << structName << "::id<" << iter->field_comment << "> {" << std::endl;
+			ss << "struct " << structName << "::id<" << iter->field_comment << "Message> {" << std::endl;
 
 			if (nspace != "") {
 				ss << "\t" << "static const int value = " << nspace << "::" << iter->field_name << ";" << std::endl;
@@ -314,8 +314,7 @@ private:
 
 		ss << "int " << messageClsName << "::decode(const char *buffer, size_t size)" << std::endl;
 		ss << "{" << std::endl;
-		ss << "\t" << "std::string str(buffer, size);" << std::endl;
-		ss << "\t" << "if (false == data.ParseFromString(str)) {" << std::endl;
+		ss << "\t" << "if (false == data.ParseFromArray(buffer, size)) {" << std::endl;
 		ss << "\t\t" << "return 0;" << std::endl;
 		ss << "\t}" << std::endl << std::endl;
 		ss << "\t" << "return size;" << std::endl;
