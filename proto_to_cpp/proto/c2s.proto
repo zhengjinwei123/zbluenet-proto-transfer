@@ -1,5 +1,8 @@
 syntax = "proto2";
 
+
+option go_package="./;protocol";
+
 package protocol;
 
 

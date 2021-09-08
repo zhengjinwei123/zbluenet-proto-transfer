@@ -83,12 +83,12 @@ const char descriptor_table_protodef_test_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "\n\ntest.proto\022\010protocol\"Z\n\013C2SLoginReq\022\024\n"
   "\007account\030\001 \001(\tH\000\210\001\001\022\020\n\003age\030\002 \001(\005H\001\210\001\001\022\017\n"
   "\007friends\030\003 \003(\005B\n\n\010_accountB\006\n\004_age\"\'\n\013S2"
-  "CLoginRep\022\020\n\003ret\030\001 \001(\005H\000\210\001\001B\006\n\004_retb\006pro"
-  "to3"
+  "CLoginRep\022\020\n\003ret\030\001 \001(\005H\000\210\001\001B\006\n\004_retB\rZ\013."
+  "/;protocolb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_test_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_test_2eproto = {
-  false, false, 163, descriptor_table_protodef_test_2eproto, "test.proto", 
+  false, false, 178, descriptor_table_protodef_test_2eproto, "test.proto", 
   &descriptor_table_test_2eproto_once, nullptr, 0, 2,
   schemas, file_default_instances, TableStruct_test_2eproto::offsets,
   file_level_metadata_test_2eproto, file_level_enum_descriptors_test_2eproto, file_level_service_descriptors_test_2eproto,

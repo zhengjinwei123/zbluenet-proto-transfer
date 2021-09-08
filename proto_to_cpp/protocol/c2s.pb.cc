@@ -124,11 +124,11 @@ const char descriptor_table_protodef_c2s_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "ogoutReq\"\034\n\rS2CLogoutResp\022\013\n\003ret\030\001 \001(\005*X"
   "\n\002ID\022\022\n\rC2S_LOGIN_REQ\020\351\007\022\023\n\016S2C_LOGIN_RE"
   "SP\020\352\007\022\023\n\016C2S_LOGOUT_REQ\020\353\007\022\024\n\017S2C_LOGOUT"
-  "_RESP\020\354\007"
+  "_RESP\020\354\007B\rZ\013./;protocol"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_c2s_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_c2s_2eproto = {
-  false, false, 248, descriptor_table_protodef_c2s_2eproto, "c2s.proto", 
+  false, false, 263, descriptor_table_protodef_c2s_2eproto, "c2s.proto", 
   &descriptor_table_c2s_2eproto_once, nullptr, 0, 4,
   schemas, file_default_instances, TableStruct_c2s_2eproto::offsets,
   file_level_metadata_c2s_2eproto, file_level_enum_descriptors_c2s_2eproto, file_level_service_descriptors_c2s_2eproto,
